@@ -44,9 +44,9 @@ export default class DropZone {
 			}
 
 			insertAfter.after(droppedCardElement);
-			KanbanAPI.updateCard(cardId, {
+			KanbanAPI.updateCardAPI(cardId, {
 				listId,
-				position: droppedIndex,
+				position: droppedIndex + 1,
 			});
 		});
 
