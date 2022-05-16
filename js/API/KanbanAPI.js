@@ -136,7 +136,7 @@ export default class KanbanAPI {
 				}
 			);
 
-			console.log(response);
+			console.log(cardId, positionId);
 
 			if (!response.ok) {
 				throw new Error("Problème " + response.status);

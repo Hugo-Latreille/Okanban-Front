@@ -20,10 +20,12 @@ export default class List {
 		this.elements.title.textContent = name;
 		this.elements.cards.appendChild(topDropZone);
 		this.elements.addCard.addEventListener("click", async () => {
-			const cardsElement = document.querySelector(".kanban__list");
+			const list = this.elements.root;
 			const newCardPosition =
-				Array.from(cardsElement.querySelectorAll(".kanban__card")).length + 1;
+				Array.from(list.querySelectorAll(".kanban__card")).length + 1;
+
 			const newCard = await KanbanAPI.insertCardApi(id, "", newCardPosition);
+
 			this.renderCard(newCard);
 		});
 		(async () => {

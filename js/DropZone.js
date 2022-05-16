@@ -42,12 +42,9 @@ export default class DropZone {
 			if (droppedCardElement.contains(dropZone)) {
 				return;
 			}
-
+			console.log(droppedIndex + 1);
 			insertAfter.after(droppedCardElement);
-			KanbanAPI.updateCardAPI(cardId, {
-				listId,
-				position: droppedIndex + 1,
-			});
+			KanbanAPI.updatePositionAPI(cardId, droppedIndex);
 		});
 
 		return dropZone;

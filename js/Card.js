@@ -16,8 +16,8 @@ export default class Card {
 
 		const onBlur = () => {
 			const newContent = this.elements.content.textContent.trim();
-			console.log(this.content);
-			console.log(newContent);
+			// console.log(this.content);
+			// console.log(newContent);
 			if (newContent === this.content) {
 				return;
 			}
