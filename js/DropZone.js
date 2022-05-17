@@ -28,7 +28,7 @@ export default class DropZone {
 			const dropZonesInList = Array.from(
 				listElement.querySelectorAll(".kanban__dropzone")
 			);
-			const droppedIndex = dropZonesInList.indexOf(dropZone);
+			const droppedIndex = dropZonesInList.indexOf(dropZone) + 1;
 			const cardId = Number(e.dataTransfer.getData("text/plain"));
 			const droppedCardElement = document.querySelector(
 				`[data-id="${cardId}"]`
@@ -42,7 +42,12 @@ export default class DropZone {
 			if (droppedCardElement.contains(dropZone)) {
 				return;
 			}
-			console.log(droppedIndex + 1);
+
+			if (droppedIndex === 0) {
+				return (droppedIndex = 1);
+			}
+
+			console.log(droppedIndex);
 			insertAfter.after(droppedCardElement);
 			KanbanAPI.updatePositionAPI(cardId, droppedIndex);
 		});
